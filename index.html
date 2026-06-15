@@ -1,0 +1,1478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FNLGHTC Pathology Internship Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --teal-900: #04342C;
+    --teal-800: #085041;
+    --teal-700: #0F6E56;
+    --teal-600: #0F8065;
+    --teal-500: #1D9E75;
+    --teal-300: #5DCAA5;
+    --teal-100: #9FE1CB;
+    --teal-50:  #E1F5EE;
+    --off-white: #F5F2EC;
+    --warm-white: #FDFCFA;
+    --text-dark: #0D1F1A;
+    --text-mid: #2E4A42;
+    --text-muted: #5A7A70;
+    --border: rgba(15, 110, 86, 0.15);
+    --border-mid: rgba(15, 110, 86, 0.25);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--warm-white);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(253, 252, 250, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+
+  .nav-logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--teal-700);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-mark svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 1.8; }
+
+  .nav-brand-text {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--teal-800);
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+  }
+
+  .nav-brand-text span {
+    display: block;
+    font-weight: 400;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--text-mid);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--teal-700); }
+
+  .nav-cta {
+    background: var(--teal-700);
+    color: white !important;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--teal-800) !important; color: white !important; }
+
+  .nav-hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-hamburger svg { width: 22px; height: 22px; stroke: var(--text-dark); stroke-width: 2; fill: none; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    padding: 64px 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+
+  .hero-content {
+    padding: 7rem 3rem 5rem 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 640px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-700);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--teal-500);
+    border-radius: 2px;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    line-height: 1.15;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--teal-700);
+  }
+
+  .hero-desc {
+    font-size: 17px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    background: var(--teal-700);
+    color: white;
+    padding: 13px 28px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.01em;
+  }
+
+  .btn-primary:hover { background: var(--teal-800); transform: translateY(-1px); }
+
+  .btn-secondary {
+    color: var(--teal-700);
+    padding: 13px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1.5px solid var(--border-mid);
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-secondary:hover { border-color: var(--teal-500); background: var(--teal-50); }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .hero-stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--teal-700);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .hero-stat-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 500;
+  }
+
+  .hero-visual {
+    background: var(--teal-800);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .hero-visual-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background-image: 
+      radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .hero-visual-content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    width: 100%;
+  }
+
+  .microscope-art {
+    width: 100%;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .microscope-art svg {
+    width: 220px;
+    height: 280px;
+    opacity: 0.85;
+  }
+
+  .hero-quote {
+    border-left: 3px solid var(--teal-300);
+    padding-left: 1.25rem;
+    margin-top: auto;
+  }
+
+  .hero-quote p {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: white;
+    font-style: italic;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+
+  .hero-quote cite {
+    font-size: 12px;
+    color: var(--teal-100);
+    font-style: normal;
+    display: block;
+    margin-top: 8px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  /* SECTION COMMON */
+  section { padding: 6rem 5vw; }
+
+  .section-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal-600);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--teal-500);
+    display: block;
+    border-radius: 2px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.2;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--teal-700);
+  }
+
+  /* ABOUT */
+  .about { background: var(--off-white); }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 3.5rem;
+  }
+
+  .about-body {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.9;
+    font-weight: 300;
+  }
+
+  .about-body p + p { margin-top: 1.25rem; }
+
+  .about-body strong {
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .about-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .about-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .about-feature-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--teal-50);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+  }
+
+  .about-feature-icon svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--teal-700);
+    stroke-width: 1.8;
+    fill: none;
+  }
+
+  .about-feature-body h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .about-feature-body p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ROTATIONS */
+  .rotations { background: var(--warm-white); }
+
+  .rotations-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: end;
+    margin-bottom: 3rem;
+  }
+
+  .rotations-subtitle {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+
+  .rotation-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .rotation-card {
+    background: var(--warm-white);
+    padding: 1.75rem;
+    transition: background 0.2s;
+    cursor: default;
+  }
+
+  .rotation-card:hover { background: var(--teal-50); }
+
+  .rotation-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--teal-100);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .rotation-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .rotation-duration {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    color: var(--teal-600);
+    font-weight: 500;
+    background: var(--teal-50);
+    padding: 3px 10px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .rotation-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* BATCHES */
+  .batches { background: var(--off-white); }
+
+  .batches-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .batch-filter {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 16px;
+    border-radius: 100px;
+    border: 1.5px solid var(--border-mid);
+    background: transparent;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--teal-700);
+    color: white;
+    border-color: var(--teal-700);
+  }
+
+  .batch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .batch-card {
+    background: var(--warm-white);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .batch-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 32px rgba(15, 110, 86, 0.1);
+  }
+
+  .batch-photo {
+    height: 180px;
+    background: var(--teal-800);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .batch-photo-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.4;
+  }
+
+  .batch-photo-placeholder svg {
+    width: 40px;
+    height: 40px;
+    stroke: white;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  .batch-photo-placeholder span {
+    font-size: 11px;
+    color: white;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .batch-year-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  .batch-body { padding: 1.25rem; }
+
+  .batch-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .batch-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
+
+  .batch-meta-item {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .batch-meta-item svg {
+    width: 13px;
+    height: 13px;
+    stroke: var(--teal-500);
+    stroke-width: 2;
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  /* HOW TO APPLY */
+  .apply { background: var(--teal-800); }
+
+  .apply .section-label { color: var(--teal-100); }
+  .apply .section-label::before { background: var(--teal-300); }
+
+  .apply .section-title { color: white; }
+
+  .apply-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .apply-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .apply-step {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .apply-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 44px;
+    bottom: -1.5rem;
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .apply-step + .apply-step { margin-top: 2rem; }
+
+  .step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--teal-100);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .apply-step.completed .step-circle {
+    background: var(--teal-600);
+    border-color: var(--teal-400);
+  }
+
+  .step-body h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 4px;
+  }
+
+  .step-body p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    line-height: 1.6;
+  }
+
+  .apply-requirements {
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem;
+  }
+
+  .apply-requirements h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1.25rem;
+  }
+
+  .req-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .req-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+  }
+
+  .req-list li::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1.5px solid var(--teal-300);
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%235DCAA5' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center no-repeat;
+  }
+
+  .apply-cta {
+    margin-top: 2rem;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .btn-white {
+    background: white;
+    color: var(--teal-800);
+    padding: 13px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-white:hover { background: var(--teal-50); }
+
+  .btn-outline-white {
+    border: 1.5px solid rgba(255,255,255,0.3);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-outline-white:hover {
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.05);
+  }
+
+  /* FAQ */
+  .faq { background: var(--warm-white); }
+
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 5rem;
+    margin-top: 3.5rem;
+    align-items: start;
+  }
+
+  .faq-sidebar p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+
+  .faq-contact {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--teal-50);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+
+  .faq-contact h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 4px;
+  }
+
+  .faq-contact p {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    line-height: 1.5;
+  }
+
+  .faq-contact a {
+    color: var(--teal-700);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 13px;
+    display: block;
+    margin-top: 10px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-item { border-bottom: 1px solid var(--border); }
+
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .faq-question-text {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-dark);
+    line-height: 1.5;
+  }
+
+  .faq-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    background: var(--teal-50);
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.25s, background 0.2s;
+  }
+
+  .faq-icon svg {
+    width: 12px;
+    height: 12px;
+    stroke: var(--teal-700);
+    stroke-width: 2.5;
+    fill: none;
+    transition: transform 0.25s;
+  }
+
+  .faq-item.open .faq-icon { background: var(--teal-700); }
+  .faq-item.open .faq-icon svg { stroke: white; transform: rotate(45deg); }
+
+  .faq-answer {
+    display: none;
+    padding: 0 0 1.5rem;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .faq-item.open .faq-answer { display: block; }
+
+  /* FOOTER */
+  footer {
+    background: var(--teal-900);
+    padding: 4rem 5vw 2.5rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 2rem;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+    max-width: 340px;
+    font-weight: 300;
+    margin-top: 1rem;
+  }
+
+  .footer-col h5 {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--teal-100);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+  .footer-col ul a {
+    font-size: 13.5px;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-col ul a:hover { color: var(--teal-100); }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3);
+  }
+
+  .footer-address {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+    text-align: right;
+  }
+
+  /* MOBILE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .hero-content { padding: 6rem 5vw 4rem; max-width: 100%; }
+    .about-grid, .apply-grid, .faq-layout, .rotations-intro { grid-template-columns: 1fr; gap: 2.5rem; }
+    .rotation-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .nav-links { display: none; }
+    .nav-links.open { display: flex; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: var(--warm-white); padding: 2rem; border-bottom: 1px solid var(--border); gap: 1.5rem; z-index: 99; }
+    .nav-hamburger { display: block; }
+    .footer-address { text-align: left; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .batches-header { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="9" r="4"/>
+        <path d="M12 13v7M9 20h6M7 9a5 5 0 1 1 10 0"/>
+      </svg>
+    </div>
+    <div class="nav-brand-text">
+      FNLGHTC
+      <span>Pathology Internship</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rotations">Training</a></li>
+    <li><a href="#batches">Batches</a></li>
+    <li><a href="#apply">How to Apply</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Contact us</a></li>
+  </ul>
+
+  <button class="nav-hamburger" id="hamburger" aria-label="Open navigation">
+    <svg viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Far North Luzon General Hospital &amp; Training Center</div>
+    <h1>Pathology Internship<br><em>Rooted in Precision,</em><br>Built on Practice</h1>
+    <p class="hero-desc">A practice-based medical technology internship program under the Department of Pathology — training the next generation of laboratory professionals in Northern Luzon.</p>
+    <div class="hero-actions">
+      <a href="#apply" class="btn-primary">
+        How to apply
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#about" class="btn-secondary">Learn about the program</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">8-section</div>
+        <div class="hero-stat-label">Rotation</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">6-month</div>
+        <div class="hero-stat-label">Program duration</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-visual-pattern"></div>
+    <div class="hero-visual-content">
+      <div class="microscope-art">
+        <svg viewBox="0 0 200 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Base -->
+          <ellipse cx="100" cy="230" rx="60" ry="10" fill="rgba(255,255,255,0.08)"/>
+          <rect x="70" y="218" width="60" height="12" rx="4" fill="rgba(255,255,255,0.15)"/>
+          <!-- Arm/column -->
+          <rect x="94" y="100" width="12" height="120" rx="4" fill="rgba(255,255,255,0.2)"/>
+          <!-- Body -->
+          <rect x="78" y="90" width="44" height="30" rx="8" fill="rgba(255,255,255,0.18)"/>
+          <!-- Nosepiece -->
+          <ellipse cx="100" cy="90" rx="20" ry="8" fill="rgba(255,255,255,0.22)"/>
+          <!-- Objective lenses -->
+          <rect x="96" y="68" width="8" height="24" rx="3" fill="rgba(255,255,255,0.3)"/>
+          <rect x="84" y="72" width="6" height="18" rx="3" fill="rgba(255,255,255,0.2)" transform="rotate(-20 87 81)"/>
+          <rect x="108" y="72" width="6" height="18" rx="3" fill="rgba(255,255,255,0.2)" transform="rotate(20 111 81)"/>
+          <!-- Tube / eyepiece -->
+          <rect x="92" y="30" width="16" height="42" rx="5" fill="rgba(255,255,255,0.25)"/>
+          <ellipse cx="100" cy="30" rx="12" ry="6" fill="rgba(255,255,255,0.35)"/>
+          <!-- Stage -->
+          <rect x="62" y="148" width="76" height="10" rx="3" fill="rgba(255,255,255,0.2)"/>
+          <rect x="72" y="154" width="56" height="20" rx="2" fill="rgba(255,255,255,0.1)"/>
+          <!-- Light glow -->
+          <circle cx="100" cy="158" r="18" fill="rgba(157,225,203,0.12)"/>
+          <!-- Coarse/fine knobs -->
+          <ellipse cx="72" cy="160" rx="8" ry="10" fill="rgba(255,255,255,0.18)"/>
+          <ellipse cx="128" cy="160" rx="8" ry="10" fill="rgba(255,255,255,0.18)"/>
+        </svg>
+      </div>
+      <div class="hero-quote">
+        <p>"Excellence in pathology begins at the bench — with patience, precision, and purpose."</p>
+        <cite>Juanita T. Lacuesta, MD, FPSP, MBA-H <br>Head of the Department of Pathology, FNLGHTC</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="section-label">About the program</div>
+  <h2 class="section-title">Training laboratory professionals<br>for <em>Northern Luzon</em></h2>
+  <div class="about-grid">
+    <div>
+      <div class="about-body">
+        <p>The <strong>FNLGHTC Pathology Internship Program</strong> is a Commission on Higher Education (CHED)-recognized internship designed for Medical Technology students completing their clinical training hours under Republic Act 5527.</p>
+        <p>Interns rotate through all major sections of the clinical laboratory under the direct supervision of licensed Medical Technologists and Pathologists.</p>
+        <p>The program runs for <strong>six months</strong>, structured to fulfill 832 of the 1664 clinical training hours required for board examination eligibility, with per-section evaluation and a final competency assessment.</p>
+      </div>
+    </div>
+    <div class="about-features">
+      <div class="about-feature">
+        <div class="about-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="about-feature-body">
+          <h4>CHED-accredited training site</h4>
+          <p>Recognized clinical training affiliate for Medical Technology programs across the Ilocos and Cagayan Valley regions.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="about-feature-body">
+          <h4>Supervised by seasoned medical professionals</h4>
+          <p>All rotations are directly supervised by licensed medical technologists and pathologists.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        </div>
+        <div class="about-feature-body">
+          <h4>Case-based learning</h4>
+          <p>Interns encounter real clinical specimens and participate in case discussions, preparing them for actual hospital laboratory environments.</p>
+        </div>
+      </div>
+      <div class="about-feature">
+        <div class="about-feature-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="about-feature-body">
+          <h4>Complete documentation support</h4>
+          <p>Training forms, competency checklists, and evaluation records provided in coordination with partner universities.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROTATIONS -->
+<section class="rotations" id="rotations">
+  <div class="rotations-intro">
+    <div>
+      <div class="section-label">Training areas</div>
+      <h2 class="section-title">Eight core laboratory<br><em>rotations</em></h2>
+    </div>
+    <p class="rotations-subtitle">Each section is structured to build specific competencies. Interns complete all eight rotations before final evaluation, ensuring comprehensive exposure across the clinical laboratory.</p>
+  </div>
+  <div class="rotation-grid">
+    <div class="rotation-card">
+      <div class="rotation-num">01</div>
+      <div class="rotation-name">Hematology</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        150 hours
+      </div>
+      <p class="rotation-desc">Complete blood counts, peripheral blood smear interpretation, coagulation studies, and blood banking procedures.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">02</div>
+      <div class="rotation-name">Clinical Chemistry</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        150 hours
+      </div>
+      <p class="rotation-desc">Enzymatic assays, metabolic panels, electrolyte analysis, liver and kidney function tests using automated analyzers.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">03</div>
+      <div class="rotation-name">Microbiology &amp; Parasitology</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        125 hours
+      </div>
+      <p class="rotation-desc">Culture and sensitivity testing, gram staining, parasitological identification, and infection control protocols.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">04</div>
+      <div class="rotation-name">Clinical Microscopy &amp; Parasitology</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        100 hours
+      </div>
+      <p class="rotation-desc">Routine and special urinalysis, CSF and pleural fluid analysis, microscopic examination of urine sediment.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">05</div>
+      <div class="rotation-name">Serology &amp; Immunology</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        110 hours
+      </div>
+      <p class="rotation-desc">Rapid diagnostic tests, ELISA methods.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">06</div>
+      <div class="rotation-name">Blood Bank</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        100 hours
+      </div>
+      <p class="rotation-desc">ABO/Rh blood typing and cross-matching.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">07</div>
+      <div class="rotation-name">Histopathology Technique &amp; Cytology</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        50 hours
+      </div>
+        <p class="rotation-desc">Histopathologic slide preparation, gross specimen examination, cytology smear preparation under direct pathologist supervision.</p>
+    </div>
+    <div class="rotation-card">
+      <div class="rotation-num">08</div>
+      <div class="rotation-name">Laboratory Management</div>
+      <div class="rotation-duration">
+        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        47 hours
+      </div>
+      <p class="rotation-desc">Phlebotomy procedures, specimen collection, and handling.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BATCHES -->
+<section class="batches" id="batches">
+  <div class="batches-header">
+    <div>
+      <div class="section-label">Intern batches</div>
+      <h2 class="section-title">Our <em>alumni</em> and current interns</h2>
+    </div>
+    <div class="batch-filter">
+      <button class="filter-btn active" onclick="filterBatch(this, 'all')">All batches</button>
+      <button class="filter-btn" onclick="filterBatch(this, '2026')">2026-2027</button>
+    </div>
+  </div>
+  <div class="batch-grid" id="batchGrid">
+    <!-- Batch cards generated by JS -->
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="apply" id="apply">
+  <div class="section-label">How to apply</div>
+  <h2 class="section-title">Your path to the program</h2>
+  <div class="apply-grid">
+    <div>
+      <div class="apply-steps">
+        <div class="apply-step">
+          <div class="step-circle">1</div>
+          <div class="step-body">
+            <h4>Confirm eligibility</h4>
+            <p>Check with your university dean or clinical instructor that FNLGHTC is an accredited affiliate site for your school's MedTech program.</p>
+          </div>
+        </div>
+        <div class="apply-step">
+          <div class="step-circle">2</div>
+          <div class="step-body">
+            <h4>Submit a letter of intent</h4>
+            <p>Send a formal letter of intent from your school addressed to the Chief Medical Technologist, Department of Pathology, FNLGHTC.</p>
+          </div>
+        </div>
+        <div class="apply-step">
+          <div class="step-circle">3</div>
+          <div class="step-body">
+            <h4>Complete pre-placement requirements</h4>
+            <p>Submit medical clearance, hepatitis B vaccination record, NBI clearance, and government-issued ID to the Pathology Department.</p>
+          </div>
+        </div>
+        <div class="apply-step">
+          <div class="step-circle">4</div>
+          <div class="step-body">
+            <h4>Attend orientation</h4>
+            <p>Scheduled prior to your first rotation date. Orientation covers hospital policies, laboratory safety, and your rotation schedule.</p>
+          </div>
+        </div>
+        <div class="apply-step">
+          <div class="step-circle">5</div>
+          <div class="step-body">
+            <h4>Begin your rotations</h4>
+            <p>Report to the Pathology Department on your designated start date. Your supervisor for each rotation will guide you from day one.</p>
+          </div>
+        </div>
+      </div>
+      <div class="apply-cta">
+        <a href="#" id="emailBtn" class="btn-white">
+          Email the department
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="#faq" class="btn-outline-white">Read the FAQ</a>
+      </div>
+    </div>
+
+    <div class="apply-requirements">
+      <h3>Pre-placement requirements</h3>
+      <ul class="req-list">
+        <li>Original letter of endorsement from your university signed by the Dean</li>
+        <li>Completed Personal Data Sheet</li>
+        <li>Photocopy of Transcript of Records</li>
+        <li>Medical certificate with accompanying CBC, urinalysis, fecalysis, chest x-ray, anti-HIV screening, HbsAg, quantitative anti-HBs, and drug test results</li>
+        <li>Certificate of Good Moral Character</li>
+        <li>Proof of vaccination against hepatitis B and Flu</li>
+        <li>Latest 2×2 ID photos (2 copies, white background)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-layout">
+    <div class="faq-sidebar">
+      <div class="section-label">FAQ</div>
+      <h2 class="section-title">Common questions</h2>
+      <p>Can't find what you're looking for? Reach out directly to the Pathology Department and we'll get back to you within 2–3 working days.</p>
+      <div class="faq-contact">
+        <h4>Pathology Department</h4>
+        <p>Far North Luzon General Hospital &amp; Training Center<br>Quirino, Luna, Apayao</p>
+        <a href="#" id="faqEmailLink">fnlghtclaboratory <!-- @ --> gmail.com</a>
+      </div>
+    </div>
+
+    <div class="faq-list" id="faqList">
+      <!-- FAQ items generated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:0.25rem;">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="9" r="4"/>
+            <path d="M12 13v7M9 20h6M7 9a5 5 0 1 1 10 0"/>
+          </svg>
+        </div>
+        <div style="font-size:15px; font-weight:600; color:white; line-height:1.2;">FNLGHTC<span style="display:block; font-weight:300; font-size:12px; color:rgba(255,255,255,0.45); letter-spacing:0.04em;">Pathology Department</span></div>
+      </div>
+      <p>The Department of Pathology of Far North Luzon General Hospital and Training Center is committed to training competent, ethical, and compassionate medical laboratory professionals in service of Northern Luzon.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Program</h5>
+      <ul>
+        <li><a href="#about">About the program</a></li>
+        <li><a href="#rotations">Training Areas</a></li>
+        <li><a href="#batches">Intern batches</a></li>
+        <li><a href="#apply">How to apply</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="#" id="footerEmailLink">fnlghtclaboratory <!-- @ --> gmail.com</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Department of Pathology, FNLGHTC. All rights reserved.</p>
+    <div class="footer-address">
+      Far North Luzon General Hospital &amp; Training Center<br>
+      Quirino, Luna, Apayao, PH
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // BATCH DATA
+  const batches = [
+    { year: '2026', label: '2026', name: 'Batch Name', count: 50, schools: 'UB, SLU', tag: '2026' },
+    { year: '2026', label: '2026-2027', name: 'Incoming Batch', count: 60, schools: 'UB, SLU', tag: '2026' },
+    
+  ];
+
+  function renderBatches(tag) {
+    const grid = document.getElementById('batchGrid');
+    const filtered = tag === 'all' ? batches : batches.filter(b => b.tag === tag);
+    grid.innerHTML = filtered.map(b => `
+      <div class="batch-card">
+        <div class="batch-photo">
+          <div class="batch-year-badge">${b.label}</div>
+          <div class="batch-photo-placeholder">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Batch photo</span>
+          </div>
+        </div>
+        <div class="batch-body">
+          <div class="batch-name">${b.name}</div>
+          <div style="font-size:13px; color:var(--text-muted);">${b.label}</div>
+          <div class="batch-meta">
+            <div class="batch-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+              ${b.count} interns
+            </div>
+            <div class="batch-meta-item">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              ${b.schools}
+            </div>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function filterBatch(btn, tag) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderBatches(tag);
+  }
+
+  renderBatches('all');
+
+  // FAQ DATA
+  const faqs = [
+    {
+      q: 'What are the accepted partner universities for this internship?',
+      a: 'FNLGHTC Pathology Department accepts interns from any CHED-accredited Medical Technology program in the Philippines, provided the school has an existing Memorandum of Agreement (MOA) with the hospital. Schools without an MOA may initiate one through their appropriate channels.'
+    },
+    {
+      q: 'How many intern slots are available per batch?',
+      a: 'We can accommodate up to 60 interns per batch across all sections. Slots are filled on a first-come, first-served basis upon receipt of complete requirements.'
+    },
+    {
+      q: 'Is there an internship fee?',
+      a: 'There is a minimal training fee set by the Pathology Department and may vary per academic year. Your school\'s clinical coordinator will have the current rate, or you may email the Pathology Department directly.'
+    },
+    {
+      q: 'Can interns from private universities apply?',
+      a: 'Yes. Both SUC (State Universities and Colleges) and private university students are welcome to apply, as long as their program is CHED-accredited and their school has or can establish an MOA with FNLGHTC.'
+    },
+    {
+      q: 'What are the duty hours like?',
+      a: 'Interns follow a shifting schedule aligned with the laboratory\'s operational hours.'
+    },
+    {
+      q: 'Is there an on-site dormitory or housing for interns from other provinces?',
+      a: 'FNLGHTC does not provide dormitory accommodations. However, the Pathology Department can provide a list of nearby boarding houses and accommodation options in the area upon request.'
+    },
+  ];
+
+  const faqList = document.getElementById('faqList');
+  faqList.innerHTML = faqs.map((f, i) => `
+    <div class="faq-item" id="faq-${i}">
+      <button class="faq-question" onclick="toggleFaq(${i})">
+        <span class="faq-question-text">${f.q}</span>
+        <span class="faq-icon">
+          <svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </span>
+      </button>
+      <div class="faq-answer">${f.a}</div>
+    </div>
+  `).join('');
+
+  function toggleFaq(i) {
+    const item = document.getElementById('faq-' + i);
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Email obfuscation — assembled at runtime so scrapers can't harvest it from HTML source
+  const u = 'fnlghtclaboratory';
+  const d = 'gmail.com';
+  const email = u + '@' + d;
+  const mailto = 'mailto:' + email;
+  const displayText = email;
+  const btn = document.getElementById('emailBtn');
+  if (btn) btn.href = mailto;
+  const faqLink = document.getElementById('faqEmailLink');
+  if (faqLink) { faqLink.href = mailto; faqLink.textContent = displayText; }
+  const footerLink = document.getElementById('footerEmailLink');
+  if (footerLink) { footerLink.href = mailto; footerLink.textContent = displayText; }
+</script>
+</body>
+</html>
