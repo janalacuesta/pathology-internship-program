@@ -61,17 +61,19 @@
   }
 
   .nav-logo-mark {
-    width: 36px;
     height: 36px;
-    background: var(--teal-700);
-    border-radius: 8px;
+    background: transparent;
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 6px;
     flex-shrink: 0;
   }
 
-  .nav-logo-mark svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 1.8; }
+  .nav-logo-img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+  }
 
   .nav-brand-text {
     font-size: 13px;
@@ -989,10 +991,8 @@
 <nav>
   <a class="nav-brand" href="#">
     <div class="nav-logo-mark">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="9" r="4"/>
-        <path d="M12 13v7M9 20h6M7 9a5 5 0 1 1 10 0"/>
-      </svg>
+      <img src="949.png" alt="FNLGHTC" class="nav-logo-img">
+      <img src="lab-modified.png" alt="Department of Pathology" class="nav-logo-img">
     </div>
     <div class="nav-brand-text">
       FNLGHTC
