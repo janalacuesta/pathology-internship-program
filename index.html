@@ -560,7 +560,15 @@
     align-items: center;
     justify-content: center;
   }
-
+ 
+  .batch-photo-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+ 
   .batch-photo-placeholder {
     display: flex;
     flex-direction: column;
@@ -597,6 +605,7 @@
     padding: 4px 12px;
     border-radius: 100px;
     border: 1px solid rgba(255,255,255,0.2);
+    z-index: 1;
   }
 
   .batch-body { padding: 1.5rem; }
@@ -1363,7 +1372,7 @@
 
   // BATCH DATA
   const batches = [
-    { year: '2026', label: '2026', name: 'Pasindayaw', count: 60, schools: 'University of Baguio, Saint Paul University of the Philippines, Medical Colleges of Northern Philippines, University of Perpetual Help - Santiago', tag: '2026' },
+    { year: '2026', label: '2026', name: 'Pasindayaw', count: 60, schools: 'University of Baguio, Saint Paul University of the Philippines, Medical Colleges of Northern Philippines, University of Perpetual Help - Santiago', tag: '2026', photo: 'pasindayaw.jpg' },
     { year: '2026', label: '2026-2027', name: 'Incoming Batch', count: 60, schools: 'Pending', tag: '2026' },
     
   ];
@@ -1375,9 +1384,11 @@
       <div class="batch-card">
         <div class="batch-photo">
           <div class="batch-year-badge">${b.label}</div>
+          ${b.photo ? `<img src="${b.photo}" alt="${b.name} batch photo" class="batch-photo-img">` : `
           <div class="batch-photo-placeholder">
             <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
             <span>Batch photo</span>
+          </div>`}
           </div>
         </div>
         <div class="batch-body">
